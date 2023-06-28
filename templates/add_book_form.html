@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block body %}
+<body>
+<h1> add new book </h1>
+    <form action="/add_books" method="post">
+        <input type="text" name="isbn"><label>isbn</label><br>
+        <input type="text" name="author"><label>author</label><br>
+        <input type="text" name="title"><label>title</label><br>
+        <input type="text" name="book_price"><label>book_price</label><br>
+        <input type="text" name="quantity_available"><label>quantity</label><br>
+        <input type="submit" name="submit">
+    </form>
+
+</body>
+{% endblock %}

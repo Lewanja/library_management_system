@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+{% block body %}
+
+    <div class="row"> Title {{book.title}} </div>
+    <div class="row">Author {{ book.author }}</div>
+    <div class="row">ISBN {{ book.isbn }}</div>
+    <div class="row">Book_Price {{ book.book_price }}</div>
+    <div class="row">Quantity {{ book.quantity_available }}</div>
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% block body %}
+<body>
+<h1> Add member </h1>
+    <form action="/add_member" method="post">
+        <input type="text" name="name"><label>name</label><br>
+        <input type="text" name="account_balance"><label>account balance</label><br>
+        <input type="submit" name="submit">
+    </form>
+
+</body>
+{% endblock %}

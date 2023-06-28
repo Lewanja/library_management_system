@@ -1,0 +1,15 @@
+<form action="/return_book_to_store" method="post">
+    <label>Choose a book</label>
+    <select name="book_isbn">
+        {% for book in books%}
+        <option value="{{ book.isbn}}">{{ book.title }}</option>
+        {% endfor %}
+    </select>
+    <label>Choose a member</label>
+    <select name="member_id">
+        {% for member in members %}
+        <option value="{{ member.id }}"> {{ member.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="submit">
+</form>

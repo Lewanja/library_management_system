@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block body %}
+<body>
+<h1> Update this book: {{ context.isbn }} </h1>
+    <form action="/available_books/{{ context.isbn }}" method="post">
+        <input type="text" name="isbn" value="{{ context.isbn }}"><label>isbn</label><br>
+        <input type="text" name="author" value="{{ context.author }}"><label>author</label><br>
+        <input type="text" name="title" value="{{ context.title }}"><label>title</label><br>
+        <input type="text" name="book_price" value="{{ context.book_price }}"><label>book_price</label><br>
+        <input type="text" name="quantity_available" value="{{ context.quantity_available }}"><label>quantity</label><br>
+        <input type="submit" name="submit">
+    </form>
+
+</body>
+{% endblock %}

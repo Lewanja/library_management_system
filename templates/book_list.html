@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% block body %}
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+  The Books available in store are:
+{% block table %}
+    <a href="/get_add_books"> add book</a>
+<table class="table table-striped">
+    <thead>
+    <tr scope="row">
+        <th>isbn</th>
+        <th>title</th>
+        <th>author</th>
+        <th>price</th>
+        <th>quantity_available</th>
+        <th>action</th>
+    </tr>
+    </thead>
+    {% for book in books %}
+    <tr scope="row">
+        <td> <span>{{ book.isbn }} </span> </td> <br>
+        <td> <span> {{ book.title }} </span> </td>
+        <td> <span> {{ book.author }} </span> </td>
+        <td> <span> {{ book.book_price }} </span> </td>
+        <td> <span> {{ book.quantity_available }} </span> </td>
+        <td>
+            <a href="/available_books/{{ book.isbn }}">View book</a>
+            <a href ="/get_update_books/{{ book.isbn }}"> update book</a>
+            <a href="/available_books/delete/{{ book.isbn }}">delete book</a>
+        </td>
+    </tr>
+     {% endfor %}
+</table>
+
+{% endblock %}
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+{% endblock%}

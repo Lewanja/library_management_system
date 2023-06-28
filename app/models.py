@@ -1,6 +1,6 @@
 import enum
 
-from . import db
+from app import db
 
 
 class Books(db.Model):

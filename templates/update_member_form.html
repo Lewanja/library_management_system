@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% block body %}
+<body>
+<h1> Update member: {{ context.id }} </h1>
+    <form action="/update_member/{{ context.id }}" method="post">
+        <input type="text" name="id" value="{{ context.id }}"><label>id</label><br>
+        <input type="text" name="name" value="{{ context.name }}"><label>name</label><br>
+        <input type="text" name="account_balance" value="{{ context.account_balance }}"><label>account balance</label><br>
+        <input type="submit" name="submit">
+    </form>
+
+</body>
+{% endblock %}
