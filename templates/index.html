@@ -7,8 +7,34 @@
 
 </head>
 <body>
-    {% block body %}
+    <div class="container-fluid">
+            {% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="/available_books/list">Books</a>
+        <a class="nav-link" href="/available_books/list">View Book</a>
+        <a class="nav-link" href="/members/list">View Member</a>
+          <a class="nav-link" href="/get_issue_book">Issue book</a>
+          <a class="nav-link" href="/get_return_book">Return book</a>
+          <a class="nav-link" href="/get_search_book">Search book</a>
+      </div>
+    </div>
+  </div>
+</nav>
     {% endblock %}
+        <div>
+            <p style="margin:25px 50px 75px 100px"></p>
+    {% block body %}
+    <h2>Welcome to our Library!</h2>
+    {% endblock %}
+            </div>
+    </div>
 
 </body>
 </html>

@@ -1,13 +1,28 @@
-<div class="row">
-    ISBN{{ transaction.book_isbn }} </div>
-<div class="row">
-    MemberID {{ transaction.member_id }}</div>
-<div class="row">
-    Quantity Borrowed {{ transaction.quantity_borrowed }}
+{% extends "index.html" %}
+
+{% block body %}
+<div class="d-inline p-2 bg-primary text-white">
+    ISBN</div>
+<div class="d-inline p-2 bg-dark text-white">{{ transaction.book_isbn }} </div>
+    </br></br>
+<div class="d-inline p-2 bg-primary text-white">
+    MemberID </div>
+<div class="d-inline p-2 bg-dark text-white">{{ transaction.member_id }}</div>
+    </br></br>
+<div class="d-inline p-2 bg-primary text-white">
+    Quantity Borrowed
     </div>
-<div class="row">
-    cost{{ transaction.cost }}
+<div class="d-inline p-2 bg-dark text-white">{{ transaction.quantity_borrowed }}</div>
+    </br></br>
+<div class="d-inline p-2 bg-primary text-white">
+    cost
 </div>
-<div class="row">
-    date.{{ transaction.date_time_of_transaction }}
+<div class="d-inline p-2 bg-dark text-white"{{ transaction.cost }}></div>
+    </br></br>
+<div class="d-inline p-2 bg-primary text-white">
+    date
 </div>
+<div class="d-inline p-2 bg-dark text-white">{{ transaction.date_time_of_transaction }}</div>
+    </br></br>
+
+{% endblock %}

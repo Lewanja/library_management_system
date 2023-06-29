@@ -1,3 +1,7 @@
+{% extends "index.html" %}
+
+{% block body %}
+
 <form action="/return_book_to_store" method="post">
     <label>Choose a book</label>
     <select name="book_isbn">
@@ -11,5 +15,8 @@
         <option value="{{ member.id }}"> {{ member.name }}</option>
         {% endfor %}
     </select>
+    <input type="number" name="quantity_borrowed"><label> number borrowed</label>
     <input type="submit" name="submit">
 </form>
+
+{% endblock %}

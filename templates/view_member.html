@@ -2,9 +2,15 @@
 
 {% block body %}
 
-    <div class="row"> id {{member.id}} </div>
-    <div class="row">name {{ member.name }}</div>
-    <div class="row">account_balance {{ member.account_balance }}</div>
+
+    <div class="d-inline p-2 bg-primary text-white"> id  </div>
+    <div class="d-inline p-2 bg-dark text-white">{{member.id}}</div>
+    </br></br>
+    <div class="d-inline p-2 bg-primary text-white">name </div>
+    <div class="d-inline p-2 bg-dark text-white">{{ member.name }}</div>
+    </br></br>
+    <div class="d-inline p-2 bg-primary text-white">account_balance </div>
+    <div class="d-inline p-2 bg-dark text-white">{{ member.account_balance }}</div>
 
 
 {% endblock %}

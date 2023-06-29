@@ -3,10 +3,13 @@
 <body>
 <h1> Update member: {{ context.id }} </h1>
     <form action="/update_member/{{ context.id }}" method="post">
-        <input type="text" name="id" value="{{ context.id }}"><label>id</label><br>
-        <input type="text" name="name" value="{{ context.name }}"><label>name</label><br>
-        <input type="text" name="account_balance" value="{{ context.account_balance }}"><label>account balance</label><br>
-        <input type="submit" name="submit">
+            <label for="exampleInputname">name</label>
+    <input type="text" name="name" class="form-control" id="exampleInputname" value="{{ context.name }}">
+  </div>
+            <label for="exampleInputaccount_balance">account_balance</label>
+    <input type="text" name="account_balance" class="form-control" id="exampleInputaccount_balance" value="{{ context.account_balance }}">
+  </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
 </body>

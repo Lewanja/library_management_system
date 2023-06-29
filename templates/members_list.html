@@ -10,7 +10,9 @@
         <th>id</th>
         <th>name</th>
         <th>account_balance</th>
-        <th>action</th>
+        <th>action view</th>
+        <th>action update</th>
+        <th> action delete</th>
     </tr>
     </thead>
     {% for member in members %}
@@ -20,7 +22,11 @@
         <td> <span> {{ member.account_balance }} </span> </td>
         <td>
             <a href="/members/{{ member.id }}">View member</a>
+            </td>
+        <td>
             <a href ="/get_update_members/{{ member.id}}"> update member</a>
+        </td>
+        <td>
             <a href="/members/delete/{{ member.id }}">delete member</a>
         </td>
     </tr>

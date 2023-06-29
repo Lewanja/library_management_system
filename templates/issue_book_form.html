@@ -1,16 +1,21 @@
+{% extends 'index.html' %}
+{% block body %}
 <form action="/issue_book" method="post">
     <label>Choose a book</label>
-    <select name="book_isbn">
+    <select  class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="book_isbn">
         {% for book in books%}
         <option value="{{ book.isbn}}">{{ book.title }}</option>
         {% endfor %}
-    </select>
+    </select></br>
     <label>Choose a member</label>
-    <select name="member_id">
+    <select name="member_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
         {% for member in members %}
         <option value="{{ member.id }}"> {{ member.name }}</option>
         {% endfor %}
     </select>
+    </br>
     <input type="number" name="quantity_borrowed"><label> number borrowed</label>
+    </br>
     <input type="submit" name="submit">
 </form>
+{% endblock %}

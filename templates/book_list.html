@@ -1,9 +1,10 @@
 {% extends 'index.html' %}
 {% block body %}
+
+<a class="btn btn-primary" href="/get_add_books" role="button"> add book</a>
 <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
   The Books available in store are:
 {% block table %}
-    <a href="/get_add_books"> add book</a>
 <table class="table table-striped">
     <thead>
     <tr scope="row">
@@ -12,7 +13,9 @@
         <th>author</th>
         <th>price</th>
         <th>quantity_available</th>
-        <th>action</th>
+        <th>action_view</th>
+        <th>action_update</th>
+        <th>action_delete</th>
     </tr>
     </thead>
     {% for book in books %}
@@ -24,7 +27,11 @@
         <td> <span> {{ book.quantity_available }} </span> </td>
         <td>
             <a href="/available_books/{{ book.isbn }}">View book</a>
+        </td>
+        <td>
             <a href ="/get_update_books/{{ book.isbn }}"> update book</a>
+        </td>
+        <td>
             <a href="/available_books/delete/{{ book.isbn }}">delete book</a>
         </td>
     </tr>

@@ -2,14 +2,30 @@
 {% block body %}
 <body>
 <h1> add new book </h1>
-    <form action="/add_books" method="post">
-        <input type="text" name="isbn"><label>isbn</label><br>
-        <input type="text" name="author"><label>author</label><br>
-        <input type="text" name="title"><label>title</label><br>
-        <input type="text" name="book_price"><label>book_price</label><br>
-        <input type="text" name="quantity_available"><label>quantity</label><br>
-        <input type="submit" name="submit">
-    </form>
+<form action="/add_books" method="post">
+
+  <div class="form-group">
+    <label for="addisbn">isbn</label>
+    <input type="text" name="isbn" class="form-control" id="addisbn">
+  </div>
+    <div class="form-group">
+    <label for="addtitle">title</label>
+    <input type="text" name="title" class="form-control" id="addtitle">
+  </div>
+      <div class="form-group">
+    <label for="addauthor">author</label>
+    <input type="text" name="author" class="form-control" id="addauthor">
+  </div>
+      <div class="form-group">
+    <label for="addBookPrice">book_price</label>
+    <input type=text name="book+price" class="form-control" id="addBookPrice">
+  </div>
+      <div class="form-group">
+    <label for="addQuantityAvailable">quantity_available</label>
+    <input type="text" name="quantity_available" class="form-control" id="addQuantityAvailable">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 </body>
 {% endblock %}

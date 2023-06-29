@@ -2,7 +2,7 @@ import flask
 
 from app import create_library_app, db
 from app.models import Books, Members, Transactions, TransactionTypesEnum
-from flask import jsonify, request, render_template, redirect
+from flask import request, render_template, redirect
 from datetime import datetime
 
 app = create_library_app()
@@ -57,7 +57,6 @@ def update_book_isbn(isbn):
     update_book.book_price = request.form.get('book_price', update_book.book_price)
     update_book.quantity_available = request.form.get('quantity_available', update_book.quantity_available)
     db.session.commit()
-    json_book = jsonify(update_book.books_to_json())
     return redirect(f"/available_books/{update_book.isbn}")
     # return render_template("view.html", context=update_book)
 
@@ -83,7 +82,6 @@ def insert_book_record():
 
         db.session.add(new_book)
         db.session.commit()
-        json_book = jsonify(new_book.books_to_json())
         return redirect(f"/available_books/{new_book.isbn}")
 
 
@@ -128,13 +126,13 @@ def getaddmemberform():
 
 @app.route("/add_member", methods=["POST"])
 def insert_member():
+    print(request.form)
     new_member = Members()
     new_member.name = request.form.get("name")
-    new_member.account_balance = request.form.get("account_balance")
+    new_member.account_balance = int(request.form.get("account_balance"))
     db.session.add(new_member)
     db.session.commit()
     return redirect(f"/members/{new_member.id}")
-    # return jsonify(new_member.members_to_json())
 
 
 @app.route("/members/delete/<id>", methods=["GET"])
@@ -178,17 +176,15 @@ def issue_book():
     if existing_book is None:
         return f"Book {existing_book} does not exist!"
     if quantity_borrowed > 1:
-        return jsonify({"Error": f"Cannot issue more than 1 book of title {existing_book.title}"})
+        return "Error!" f"Cannot issue more than 1 book of title {existing_book.title}"
 
     present_quantity = existing_book.quantity_available
     account_balance_available = existing_member.account_balance
     price_of_book = existing_book.book_price
     if account_balance_available < 500:
-        return jsonify({"Error": f"{existing_member.name} does not have sufficient funds to perform this transaction, "
-                                 f"balance should be greater or equal to 5"
-                                 f"00. Your bank balance is {existing_member.account_balance}"})
+        return "Error!" f"{existing_member.name} does not have sufficient funds to perform this transaction balance should be greater or equal to 5 00. Your bank balance is {existing_member.account_balance}"
     if present_quantity < 1:
-        return jsonify({"error": f"Insufficient books in stock. Books present {present_quantity}"})
+        return "Error!" f"Insufficient books in stock. Books present {present_quantity}"
     if account_balance_available < price_of_book:
         return "Error!" f"Insufficient funds in account. Balance is {account_balance_available}"
     transaction = Transactions()
@@ -227,9 +223,9 @@ def return_book():
     existing_book = Books.query.get(book_isbn)
 
     if existing_book is None:
-        return jsonify({"Error": f"Book record {existing_book.isbn} of does not exist!"})
+        return "Error!" f"Book record {existing_book} of does not exist!"
     if existing_member is None:
-        return jsonify({"Error": f"Member {existing_member.name} not found!"})
+        return "Error!" f"Member {existing_member} not found!"
 
     previous_transaction = Transactions.query.filter_by(member_id=member_id, book_isbn=book_isbn,
                                                         transaction_type="borrowed").all()
@@ -239,10 +235,10 @@ def return_book():
     price_of_book = existing_book.book_price
 
     if len(previous_transaction) == 0:
-        return jsonify({"Error": "Transaction does not exist!"})
+        return "Error!" "Transaction does not exist!"
 
     if account_balance_available < price_of_book:
-        return jsonify({"Error": "Transaction failed due to insufficient funds!"})
+        return "Error!" "Transaction failed due to insufficient funds!"
 
     transaction = Transactions()
 

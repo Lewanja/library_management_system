@@ -2,11 +2,21 @@
 
 {% block body %}
 
-    <div class="row"> Title {{book.title}} </div>
-    <div class="row">Author {{ book.author }}</div>
-    <div class="row">ISBN {{ book.isbn }}</div>
-    <div class="row">Book_Price {{ book.book_price }}</div>
-    <div class="row">Quantity {{ book.quantity_available }}</div>
+    <div class="d-inline p-2 bg-primary text-white"> Title  </div>
+    <div class="d-inline p-2 bg-dark text-white">{{book.title}}</div>
+    </br></br>
+    <div class="d-inline p-2 bg-primary text-white">Author </div>
+    <div class="d-inline p-2 bg-dark text-white">{{ book.author }}</div>
+    </br></br>
+    <div class="d-inline p-2 bg-primary text-white">ISBN </div>
+    <div class="d-inline p-2 bg-dark text-white">{{ book.isbn }}</div>
+    </br></br>
+    <div class="d-inline p-2 bg-primary text-white">Book_Price </div>
+    <div class="d-inline p-2 bg-dark text-white">{{ book.book_price }}</div>
+    </br></br>
+    <div class="d-inline p-2 bg-primary text-white">Quantity</div>
+    <div class="d-inline p-2 bg-dark text-white">{{ book.quantity_available }}</div>
+    </br></br>
 
 
 {% endblock %}

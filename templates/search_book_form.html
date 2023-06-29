@@ -1,6 +1,20 @@
-<form action="/search_book" method="post">
-    <input type="text" name="title"><label>title</label>
-    <input type="text" name="author"><label>author</label>
-    <input type="submit" name="submit">
 
+{% extends 'index.html' %}
+{% block body %}
+<body>
+<h1> search book </h1>
+<form action="/search_book" method="post">
+
+  <div class="form-group">
+    <label for="searchtitle">title</label>
+    <input type="text" name="title" class="form-control" id="searchtitle">
+  </div>
+     <div class="form-group">
+    <label for="searchauthor">author</label>
+    <input type="text" name="author" class="form-control" id="searchauthor">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+</body>
+{% endblock %}
