@@ -223,7 +223,7 @@ def return_book():
     existing_book = Books.query.get(book_isbn)
 
     if existing_book is None:
-        return "Error!" f"Book record {existing_book} of does not exist!"
+        return "<h2> {background-color: #ff000080;} Error!" f"Book record {existing_book} of does not exist! </h2>"
     if existing_member is None:
         return "Error!" f"Member {existing_member} not found!"
 
@@ -235,7 +235,7 @@ def return_book():
     price_of_book = existing_book.book_price
 
     if len(previous_transaction) == 0:
-        return "Error!" "Transaction does not exist!"
+        return "<h2> Error!" "Transaction does not exist!</h2>"
 
     if account_balance_available < price_of_book:
         return "Error!" "Transaction failed due to insufficient funds!"
